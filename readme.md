@@ -4,6 +4,7 @@ Kartunderlag för situationsplan - en enkel tomtkarta för ArcGIS/Geosecma. Bygg
 ## Features
 * Adress/Fastighetssök
 * Slimmat interface - endast skala/format
+* Skriv ut sökresultatet i PDF.
 
 ## Installation
 * Klona eller ladda ner det här repot.
