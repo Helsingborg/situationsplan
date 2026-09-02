@@ -20,7 +20,7 @@ Kartunderlag för situationsplan - en enkel tomtkarta för ArcGIS/Geosecma. Bygg
 
 ## Konfigurera mallar
 Om mallarna behöver ändras måste PrintingServicen publiceras om. Följ dessa steg:
-* Hitta Kart och Mäts mallar: \\R002345\VGIplatsen\ArcGis\GEOSECMA\Mallar
+* Hitta Kart och Mäts mallar: \\SERVERADRESS\GIS\ArcGis\GEOSECMA\Mallar
 * Hitta Situationsplansmall för stående A4/A3.
 * Kopiera dem till en egen mapp tex C:/temp/templates
 * Döp om mallarna till A4/A3 om de har längre namn.
