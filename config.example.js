@@ -4,6 +4,18 @@ define(function(){
         adressFeatureServer: "[här går din https://... arcgis rest service till FeatureServer/0 länk]",
         fastighetFeatureServer: "[här går din https://... arcgis rest service till FeatureServer/0 länk]",
 
+        // Helsingborg approx extent 
+        // Must be (WGS84)
+        extends: {
+            xmin: 12.65,
+            ymin: 56.03,
+            xmax: 12.75,
+            ymax: 56.08,
+            spatialReference: {
+                wkid: 4326,
+            },
+        },
+
         // Layout dataframe width/height
         paperSpace: {
             A4: {
