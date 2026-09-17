@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="logo.jpg" alt="Helsingborg stad" width="488" height=177>
+    <img src="logo.jpg" alt="Helsingborg stad" width="488">
 </div>
 
 # Situationsplan
