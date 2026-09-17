@@ -1,3 +1,5 @@
+![Alt text](logo.jpg)
+
 # Situationsplan
 Kartunderlag för situationsplan - en enkel tomtkarta för ArcGIS/Geosecma. Byggt med ArcGIS API for JS 3.25
 
