@@ -39,7 +39,6 @@ const [
 ]);
 
 import Config from "./config.js";
-import PrintDialog from "./PrintDialog.js";
 
 let fastigheterPointGeoGraphic = null;
 let formatPDF = null;
@@ -613,18 +612,5 @@ view.when(() => {
     });
   }; //END OF - window.submitPrintJob
 
-  // Use a function to format the content of the popup
-  function formatContent(event) {
-    const printContent = PrintDialog.html();
-    const attributes = event.graphic.attributes;
-    let text = "";
-    text += attributes.fastighet
-      ? `Fastighet: "${attributes.fastighet}" ${attributes.fastighet}`
-      : `Fastighet: ${attributes.fastighet}`;
-    let textElement = new TextContent({
-      text: printContent,
-    });
-    return [textElement];
-  }
 });
 // End of view.when()
