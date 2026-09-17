@@ -26,7 +26,7 @@ Kartunderlag för situationsplan - en enkel tomtkarta för ArcGIS/Geosecma. Bygg
 
 >[!NOTE]
 >T.ex.: Helsingborg - extent.
-#### Must be (WGS84)
+#### Måste vara (WGS84)
         extends: {
             xmin: 12.65,
             ymin: 56.03,

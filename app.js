@@ -118,12 +118,12 @@ document.querySelector("#print").style.display = "none";
 function goToDefaultExtent(view) {
   // Helsingborg approx extent (WGS84)
   const extent = new Extent({
-    xmin: Config.extends.xmin,
-    ymin: Config.extends.ymin,
-    xmax: Config.extends.xmax,
-    ymax: Config.extends.ymax,
+    xmin: Config.extent.xmin,
+    ymin: Config.extent.ymin,
+    xmax: Config.extent.xmax,
+    ymax: Config.extent.ymax,
     spatialReference: {
-      wkid: Config.extends.spatialReference.wkid,
+      wkid: Config.extent.spatialReference.wkid,
     },
   });
 

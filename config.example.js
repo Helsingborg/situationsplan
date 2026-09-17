@@ -6,7 +6,7 @@ define(function(){
 
         // Helsingborg approx extent 
         // Must be (WGS84)
-        extends: {
+        extent: {
             xmin: 12.65,
             ymin: 56.03,
             xmax: 12.75,
