@@ -60,6 +60,6 @@ Kartunderlag för situationsplan - en enkel tomtkarta för ArcGIS/Geosecma. Bygg
 > Tänk på att tjänsten förhandsvy är beroende på att kartans utbredning anges korrekt i config.js
 
 ## Nyttiga länkar
-ArcGIS Maps SDK for JavaScript [ESRI - Developer] (https://developers.arcgis.com/javascript/3/jsapi/printtask-amd.html).
+ArcGIS Maps SDK for JavaScript [ESRI - Developer](https://developers.arcgis.com/javascript/3/jsapi/printtask-amd.html).
 
 ## TODO:
