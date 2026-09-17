@@ -29,7 +29,6 @@ body,
     text-align: center;
 }
 
-
 .lds-dual-ring {
   display: inline-block;
   width: 64px;
@@ -72,4 +71,12 @@ body,
 
 .searchBtn {
     background: #5cb85c !important;
+}
+
+span.bold {
+  color: #f42e00;
+}
+
+div.content-container.floating-ui-container.floating-ui-container--active {
+        inline-size: 300px !important;
 }
