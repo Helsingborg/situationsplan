@@ -1,43 +1,120 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
   <title>Kartunderlag för situationsplan</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://js.arcgis.com/3.25/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" href="https://js.arcgis.com/3.25/esri/css/esri.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="app.css">
-    <script src="https://js.arcgis.com/3.25/"></script>
-    <script src="app.js"></script>
+  <script type="module" src=https://js.arcgis.com/calcite-components/2.1.0/calcite.esm.js></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/5.0/esri/themes/light/main.css" />
+  <link rel="stylesheet" href="app.css">
+  <style>
+    html,
+    body,
+    arcgis-map {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: red;
+      color: white;
+      font-size: 18px;
+    }
 
-
+    #search {
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+  <script type="module" src="https://js.arcgis.com/5.0/"></script>
+  <script type="module" src="./app.js"></script>
 </head>
 
-<body>
-    <div id="search"></div>
-    <div id="map"></div>
-
-    <div id="splash-modal" class="modal">
-        <h3>Kartunderlag för situationsplan.</h3>
-        <p><b>Börja genom att söka efter en fastighet i sökfönstret.</b></p>
-        <p> Om du inte vet fastighetsbeteckningen, sök på adress för att få förslag på motsvarande fastighet. Tänk på att kartan måste skrivas ut i verklig skala. De flesta webbläsare stödjer det, dock inte Microsoft Edge.</p>
-        <button class="btn btn-success" onclick="window.closeModal()">Okej!</button>
+<body class="calcite">
+  <!-- <div class="center">Sökfunktionen uppdateras just nu!</div> -->
+  
+  <arcgis-map id="viewDiv">
+    <arcgis-print id="print" slot="top-right" view="viewDiv" print-service-url="https://kartportal.helsingborg.se/image/rest/services/webbverktyg/utskrift_a3_a4_situationsplan/GPServer/Export%20Web%20Map" title="Kartunderlag för situationsplan"></arcgis-print>
+    <arcgis-zoom position="top-left"></arcgis-zoom>
+    <arcgis-search id="search" slot="top-left" all-placeholder="Sök adress eller fastighet"
+      include-default-sources-disabled></arcgis-search>
+  </arcgis-map>
+  
+  <calcite-modal aria-labelledby="modal-title" id="intro-dialog" open="true">
+    <div slot="header" id="modal-title">
+      Kartunderlag för situationsplan.
     </div>
-
-    <script>
-        $("#splash-modal").modal({
-            showClose: false,
-            clickClose: false
-        });
-    </script>
-
+    <div slot="content">
+      <calcite-label>
+        Börja genom att söka efter en fastighet i sökfönstret.
+      </calcite-label>
+      <calcite-label>
+        Om du inte vet fastighetsbeteckningen, sök på adress för att få förslag på motsvarande fastighet.
+        <p>Tänk på att kartan måste skrivas ut i verklig skala.<br>
+          <b> De flesta webbläsare stödjer det, dock inte Firefox.</b>
+        </p>
+      </calcite-label>
+      <calcite-button id="intro-dialog-ok-btn" icon-start="group" appearance="outline-fill" round>
+        Okej!
+      </calcite-button>
+    </div>
+  </calcite-modal>
+  
+  <calcite-modal aria-labelledby="modal-title" id="esri-print-modal" open="false">
+    <div slot="header" id="modal-title">
+      Inställningar:
+      <calcite-label>
+        <span><b></b></span>
+      </calcite-label>
+    </div>
+    <div slot="content">
+      <calcite-label>
+        <b>Skala</b>
+      </calcite-label>
+      <calcite-select id="esri-scale-select">
+        <calcite-option selected value="200">200</calcite-option>
+        <calcite-option value="500">500</calcite-option>
+        <calcite-option value="1000">1000</calcite-option>
+        <calcite-option value="2000">2000</calcite-option>
+        <calcite-option value="5000">5000</calcite-option>
+      </calcite-select>
+      <calcite-label>
+        <b> </b>
+      </calcite-label>
+      <br />
+      <calcite-label>
+        <b>Format</b>
+      </calcite-label>
+      <calcite-select id="esri-template-select">
+        <calcite-option selected value="A4">A4</calcite-option>
+        <calcite-option value="A3">A3</calcite-option>
+      </calcite-select>
+      <calcite-label>
+        <b> </b>
+      </calcite-label>
+      <br />
+      <calcite-button id="esri-setting-ok-modal-button" icon-start="group" appearance="outline-fill" round>
+        Okej!
+      </calcite-button>
+      <calcite-button id="esri-restart-modal-button" icon-start="group" appearance="outline-fill" round>
+        Börja om
+      </calcite-button>
+    </div>
+  </calcite-modal>
 
 </body>
+
+<script>
+  // const button = document.getElementById("example-button");
+  const modal = document.getElementById("intro-dialog");
+  // button.addEventListener("click", function () {
+  //   modal.open = false;
+  // });
+</script>
 
 </html>
