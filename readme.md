@@ -1,4 +1,6 @@
-![Alt text](logo.jpg)
+<div style="text-align: center;">
+    <img src="logo.jpg" alt="Helsingborg stad">
+</div>
 
 # Situationsplan
 Kartunderlag för situationsplan - en enkel tomtkarta för ArcGIS/Geosecma. Byggt med ArcGIS API for JS 3.25
