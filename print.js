@@ -1,7 +1,7 @@
 define(function(){
     return {
        test: function(){
-           alert("Here I am!")
+           alert("Here I am.")
        }
     };
 });
